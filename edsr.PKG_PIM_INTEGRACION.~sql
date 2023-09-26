@@ -147,7 +147,7 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         
         IF SQL%ROWCOUNT = 0 THEN
           V_FLG_ERROR := '1';
-          V_MENSAJE   := 'Modelo JSON no v·lido';
+          V_MENSAJE   := 'Modelo JSON no v√°lido';
         END IF;
         
         INSERT INTO PIM_PRODUCTO_ATRIB(
@@ -260,7 +260,7 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         V_VENDOR_NUMBER     := FVC_ATRIBUTO_VALOR(P_ID_PIM_PROD, C_ATR_PROVEEDOR);
       EXCEPTION
         WHEN OTHERS THEN
-          raise_application_error(-20001, 'El cÛdigo de proveedor tiene m·s de 15 caracteres.');
+          raise_application_error(-20001, 'El c√≥digo de proveedor tiene m√°s de 15 caracteres.');
       END;
       
       BEGIN
@@ -284,11 +284,11 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         V_COD_LINEA         := FVC_ATRIBUTO_VALOR(P_ID_PIM_PROD, C_ATR_CODLINEA);
       EXCEPTION
         WHEN OTHERS THEN
-          raise_application_error(-20001, 'El cÛdigo de la lÌnea tiene m·s de 15 caracteres.');
+          raise_application_error(-20001, 'El c√≥digo de la l√≠nea tiene m√°s de 15 caracteres.');
       END;
       
       IF V_COD_LINEA IS NULL THEN
-        raise_application_error(-20001, 'No se ingreso el cÛdigo de la lÌnea del producto');
+        raise_application_error(-20001, 'No se ingreso el c√≥digo de la l√≠nea del producto');
       END IF;
       
       SELECT COUNT(1)
@@ -297,7 +297,7 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
       WHERE PRD_LVL_NUMBER = RPAD(V_COD_LINEA, 15, ' ');
       
       IF V_COUNT = 0 THEN
-        raise_application_error(-20001, 'La lÌnea del producto no existe');
+        raise_application_error(-20001, 'La l√≠nea del producto no existe');
       END IF;
       
     END;
@@ -387,7 +387,7 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
       FROM DUAL;
     
       IF V_EAN <> V_EAN_PARA_VALIDAR THEN
-        raise_application_error(-20001, 'El dÌgito verificador del EAN es incorrecto');
+        raise_application_error(-20001, 'El d√≠gito verificador del EAN es incorrecto');
       END IF;
       
       BEGIN
@@ -423,7 +423,7 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         V_PRECIO_UNIT := FVC_ATRIBUTO_VALOR(P_ID_PIM_PROD, C_ATR_PRECIO_UNIT);
       EXCEPTION
         WHEN OTHERS THEN
-          raise_application_error(-20001, 'El precio no es un n˙mero v·lido.');
+          raise_application_error(-20001, 'El precio no es un n√∫mero v√°lido.');
       END;
       
       IF V_PRECIO_UNIT IS NULL THEN
@@ -461,7 +461,7 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         V_SKU_PROVEEDOR := FVC_ATRIBUTO_VALOR(P_ID_PIM_PROD, C_ATR_SKU_PROVEEDOR);
       EXCEPTION
         WHEN OTHERS THEN
-          raise_application_error(-20001, 'El case pack tiene m·s de 25 caracteres.');
+          raise_application_error(-20001, 'El case pack tiene m√°s de 25 caracteres.');
       END;
       
       IF V_SKU_PROVEEDOR IS NULL THEN
@@ -489,7 +489,7 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         V_COSTO := FVC_ATRIBUTO_VALOR(P_ID_PIM_PROD, C_ATR_COSTO);
       EXCEPTION
         WHEN OTHERS THEN
-          raise_application_error(-20001, 'El costo no es un n˙mero v·lido.');
+          raise_application_error(-20001, 'El costo no es un n√∫mero v√°lido.');
       END;
       
       IF V_COSTO IS NULL THEN
@@ -505,7 +505,7 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         V_MP_CANT := FVC_ATRIBUTO_VALOR(P_ID_PIM_PROD, C_ATR_MP_CANT);
       EXCEPTION
         WHEN OTHERS THEN
-          raise_application_error(-20001, 'El master pack cantidad no es un n˙mero v·lido.');
+          raise_application_error(-20001, 'El master pack cantidad no es un n√∫mero v√°lido.');
       END;
       
       IF V_MP_CANT IS NULL THEN
@@ -521,7 +521,7 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         V_PESO_BRUTO := FVC_ATRIBUTO_VALOR(P_ID_PIM_PROD, C_ATR_PESO_BRUTO);
       EXCEPTION
         WHEN OTHERS THEN
-          raise_application_error(-20001, 'El peso bruto no es un n˙mero v·lido.');
+          raise_application_error(-20001, 'El peso bruto no es un n√∫mero v√°lido.');
       END;
       
       IF V_PESO_BRUTO IS NULL THEN
@@ -537,7 +537,7 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         V_PESO_NETO := FVC_ATRIBUTO_VALOR(P_ID_PIM_PROD, C_ATR_PESO_NETO);
       EXCEPTION
         WHEN OTHERS THEN
-          raise_application_error(-20001, 'El peso neto no es un n˙mero v·lido.');
+          raise_application_error(-20001, 'El peso neto no es un n√∫mero v√°lido.');
       END;
       
       IF V_PESO_NETO IS NULL THEN
@@ -553,15 +553,15 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         V_UND_LOG_ALTO := FVC_ATRIBUTO_VALOR(P_ID_PIM_PROD, C_ATR_UND_LOG_ALTO);
       EXCEPTION
         WHEN OTHERS THEN
-          raise_application_error(-20001, 'La altura de la unidad logÌstica no es un n˙mero v·lido.');
+          raise_application_error(-20001, 'La altura de la unidad log√≠stica no es un n√∫mero v√°lido.');
       END;
       
       IF V_UND_LOG_ALTO IS NULL THEN
-        raise_application_error(-20001, 'No se ingreso la altura de la unidad logÌstica.');
+        raise_application_error(-20001, 'No se ingreso la altura de la unidad log√≠stica.');
       END IF;
       
       IF V_UND_LOG_ALTO <= 0 THEN
-        raise_application_error(-20001, 'La altura de la unidad logÌstica debe ser mayor a cero.');
+        raise_application_error(-20001, 'La altura de la unidad log√≠stica debe ser mayor a cero.');
       END IF;
       
       
@@ -569,15 +569,15 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         V_UND_LOG_ANCHO := FVC_ATRIBUTO_VALOR(P_ID_PIM_PROD, C_ATR_UND_LOG_ANCHO);
       EXCEPTION
         WHEN OTHERS THEN
-          raise_application_error(-20001, 'El ancho de la unidad logÌstica no es un n˙mero v·lido.');
+          raise_application_error(-20001, 'El ancho de la unidad log√≠stica no es un n√∫mero v√°lido.');
       END;
       
       IF V_UND_LOG_ANCHO IS NULL THEN
-        raise_application_error(-20001, 'No se ingreso el ancho de la unidad logÌstica.');
+        raise_application_error(-20001, 'No se ingreso el ancho de la unidad log√≠stica.');
       END IF;
       
       IF V_UND_LOG_ANCHO <= 0 THEN
-        raise_application_error(-20001, 'El ancho de la unidad logÌstica debe ser mayor a cero.');
+        raise_application_error(-20001, 'El ancho de la unidad log√≠stica debe ser mayor a cero.');
       END IF;
       
       
@@ -585,15 +585,15 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         V_UND_LOG_LONGITUD := FVC_ATRIBUTO_VALOR(P_ID_PIM_PROD, C_ATR_UND_LOG_LONGITUD);
       EXCEPTION
         WHEN OTHERS THEN
-          raise_application_error(-20001, 'La profundidad de la unidad logÌstica no es un n˙mero v·lido.');
+          raise_application_error(-20001, 'La profundidad de la unidad log√≠stica no es un n√∫mero v√°lido.');
       END;
       
       IF V_UND_LOG_LONGITUD IS NULL THEN
-        raise_application_error(-20001, 'No se ingreso la profundidad de la unidad logÌstica.');
+        raise_application_error(-20001, 'No se ingreso la profundidad de la unidad log√≠stica.');
       END IF;
       
       IF V_UND_LOG_LONGITUD <= 0 THEN
-        raise_application_error(-20001, 'La profundidad de la unidad logÌstica debe ser mayor a cero.');
+        raise_application_error(-20001, 'La profundidad de la unidad log√≠stica debe ser mayor a cero.');
       END IF;
       
       
@@ -601,21 +601,21 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         V_UND_LOG_VOLUMEN := FVC_ATRIBUTO_VALOR(P_ID_PIM_PROD, C_ATR_UND_LOG_VOLUMEN);
       EXCEPTION
         WHEN OTHERS THEN
-          raise_application_error(-20001, 'El volumen de la unidad logÌstica no es un n˙mero v·lido.');
+          raise_application_error(-20001, 'El volumen de la unidad log√≠stica no es un n√∫mero v√°lido.');
       END;
       
       IF V_UND_LOG_VOLUMEN IS NULL THEN
-        raise_application_error(-20001, 'No se ingreso el volumen de la unidad logÌstica.');
+        raise_application_error(-20001, 'No se ingreso el volumen de la unidad log√≠stica.');
       END IF;
       
       IF V_UND_LOG_VOLUMEN <= 0 THEN
-        raise_application_error(-20001, 'El volumen de la unidad logÌstica debe ser mayor a cero.');
+        raise_application_error(-20001, 'El volumen de la unidad log√≠stica debe ser mayor a cero.');
       END IF;
       
       
       V_UND_LOG_UND_MED   := FVC_ATRIBUTO_UNID_MED(P_ID_PIM_PROD, C_ATR_UND_LOG_ANCHO);
       IF V_UND_LOG_UND_MED IS NULL THEN
-        raise_application_error(-20001, 'No se ingreso la unidad de medida de la unidad logÌstica.');
+        raise_application_error(-20001, 'No se ingreso la unidad de medida de la unidad log√≠stica.');
       END IF;
     END;
  
@@ -722,7 +722,7 @@ create or replace package body edsr.PKG_PIM_INTEGRACION is
         WHERE PRD_UPC = V_COD_BAR;
       END LOOP;
       
-      SP_GEN_LOG('*****cÛdig barra auxiliar: ' || V_COD_BAR);
+      SP_GEN_LOG('*****c√≥dig barra auxiliar: ' || V_COD_BAR);
       RETURN V_COD_BAR;
     END;
     
