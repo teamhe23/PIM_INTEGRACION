@@ -1,4 +1,5 @@
-select Prod.ITEM_NUMBER IdPim,
+select 
+Prod.ITEM_NUMBER IdPim,
 P.DESCRIPTION NombreProducto,
 'TIPO_DE_NEGOCIACION' TipoNegociacion,
 AtComercial.ATTRIBUTE_CHAR10 AtCom10,
@@ -40,3 +41,5 @@ where Prod.ITEM_NUMBER like 'PROMART%'
 and Prod.ACD_TYPE= 'PROD'
 and P.LANGUAGE = 'E'
 and rownum < 4
+
+
